@@ -1,0 +1,13 @@
+@font-face {
+    font-family:OPTIEdgarBold-Extended;
+    src: url();
+}
+body{
+	background-color: #F8FFF8;
+	background-size: cover;
+	margin: 0;
+    padding: 0;
+    height: 100%;
+    color: #1E1E1E;
+    font-size: 30px;
+}
