@@ -1,9 +1,15 @@
 @font-face {
-    font-family:OPTIEdgarBold-Extended;
-    src: url();
+    @font-face {
+        font-family: 'OPTIEdgarBold-Extended';
+        src: url('./fonts/OPTIEdgarBold-Extended.otf') format('opentype');
+        font-weight: normal;
+        font-style: normal;
+    }
+    
 }
 body{
-	background-color: #F8FFF8;
+    font-family: 'OPTIEdgarBold-Extended', sans-serif;
+    background-color: #F8FFF8;
 	background-size: cover;
 	margin: 0;
     padding: 0;
