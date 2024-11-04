@@ -1,19 +1,68 @@
-@font-face {
-    @font-face {
-        font-family: 'OPTIEdgarBold-Extended';
-        src: url('./fonts/OPTIEdgarBold-Extended.otf') format('opentype');
-        font-weight: normal;
-        font-style: normal;
-    }
-    
-}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Racing+Sans+One&display=swap');
+
 body{
-    font-family: 'OPTIEdgarBold-Extended', sans-serif;
+    font-family: "Open Sans", sans-serif;
     background-color: #F8FFF8;
 	background-size: cover;
-	margin: 0;
-    padding: 0;
-    height: 100%;
+    display: flex;
+    min-height: 100vh;
+	flex-direction: column;
     color: #1E1E1E;
     font-size: 30px;
+    margin: 0;
 }
+
+header {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 8vh;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-size: cover;
+    background-color: #374663;
+    margin:0px;
+}
+.logo-header{
+    height: 110px;
+    width: 80px;
+    margin-left: 30px;
+}
+.logo{
+    width: 140%;
+}
+
+.button{
+    
+  font-family: "Open Sans", sans-serif;
+  background-color: #BCFD48;
+  color: #2C2C2C;
+  text-decoration: none;
+  font-size: 20px;
+  border-radius:35px ;
+  padding: 10px 10px;
+  margin-right: 10px;
+}
+
+.button-2{
+    font-family: "Open Sans", sans-serif;
+    background-color: #BCFD48;
+    color: #2C2C2C;
+    text-decoration: none;
+    font-size: 20px;
+    border-radius:35px ;
+    padding: 10px 10px;
+    margin-right: 50px;
+    margin-bottom: 30px ;
+  }
+
+
+
+
+
