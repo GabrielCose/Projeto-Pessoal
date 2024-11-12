@@ -63,6 +63,22 @@ header {
     margin-bottom: 30px ;
   }
 
+  footer{
+    display: flex;
+    width: cover;
+    height: 70px;
+    background-color: #374663;
+    color: #BCFD48;
+    align-items: center;
+    justify-content: center;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    text-align: center;
+
+
+}
+
  
 
 
