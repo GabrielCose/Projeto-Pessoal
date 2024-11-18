@@ -41,7 +41,6 @@ header {
 }
 
 .button{
-    
     font-family: "Open Sans", sans-serif;
     background-color: #BCFD48;
     color: #2C2C2C;
@@ -63,6 +62,76 @@ header {
     margin-right: 50px;
     margin-bottom: 30px ;
   }
+  
+
+  .button:hover{
+    box-shadow: 0px 0px 20px #F8FFF8;
+}
+
+
+  .button-2:hover{
+        box-shadow: 0px 0px 20px #F8FFF8;
+  }
+
+  .card_cadastro_login{
+    font-size: 30px;
+    display: flex;
+    margin: auto;
+    margin-top: 150px;
+    justify-content: center;
+    align-content: center;
+    background-color: #374663;
+    font-size: 30px;
+    color: #F8FFF8;
+    padding: 20px;
+    border-radius: 30px;
+    height: 50dvh;
+    width: 60dvh;
+    box-shadow: 0px 0px 100px  rgba(188, 253, 72, 1);
+  }
+
+  .button_cad{
+    display: flex;
+    font-family: "Open Sans", sans-serif;
+    background-color: #BCFD48;
+    color: #2C2C2C;
+    text-decoration: none;
+    font-size: 20px;
+    border-radius:25px ;
+    padding: 10px 10px;
+    margin-right: 50px;
+    margin-bottom: 30px ;
+    
+  }
+
+.campo{
+    display: flex;
+    align-items: center;
+    margin: 20px;
+}
+
+input{
+    background-color: #F8FFF8;
+    display: flex;
+    margin: 20px;
+    border-radius: 30px;
+    height: 35px;
+    text-align: center;
+  }
+
+  footer{
+    display: flex;
+    width: cover;
+    height: 70px;
+    background-color: #374663;
+    color: #BCFD48;
+    align-items: center;
+    justify-content: center;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    text-align: center;
+}
 
  
 
