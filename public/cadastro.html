@@ -6,11 +6,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
-    <link rel="stylesheet" href="../public/css/login-cadastro.css" />
+    <link rel="stylesheet" href="../css/login-cadastro.css" />
 </head>
 <body>
     <header class="top">
-        <a class="logo-header" href="./index.html"><img class="logo" src="../public/img/Logo-SUBIE.png" alt="Logo Subaru" /></a>
+        <a class="logo-header" href="./index.html"><img class="logo" src="../assets/icon/favicon2.ico" alt="Logo Subaru" /></a>
 		<nav>
             <a class="button" href="./login.html">LOGIN</a>
             <a class="button-2" href="./cadastro.html">CADASTRO</a>
@@ -92,13 +92,14 @@ if (nome == "" || email == "" || senha == "" || confirmacao == ""){
     }else if (confirmacao != senha){
         alert(`A confirmação deve ser igual a senha`)
     } else {
-        fetch("/usuarios/cadastrar", {
+        fetch("/usuario/cadastrar", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
                 nomeServer: nome,
+                emailServer: email,
                 senhaServer: senha
                 
             }),
@@ -110,7 +111,7 @@ if (nome == "" || email == "" || senha == "" || confirmacao == ""){
                     alert('Cadastro realizado com sucesso! Redirecionando para a tela de login...');
 
                     setTimeout(() => {
-                        window.location = "Projeto-Pessoal\novo\public\login.html";
+                        window.location = "./login.html";
                     }, "2000");
                 }
                 else {
