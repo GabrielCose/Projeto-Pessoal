@@ -7,7 +7,7 @@ body{
     display: flex;
     min-height: 100vh;
 	flex-direction: column;
-    color: #1E1E1E;
+    color: #F8FFF8;
     font-size: 30px;
     margin: 0;
 }
@@ -19,6 +19,18 @@ header {
     align-items: center;
     justify-content: center;
     height: 10vh;
+}
+
+.introducao{
+  background-color: #374663;
+  border: 1px solid  #BCFD48
+}
+
+.imagem_principal{
+  background-color: #2C2C2C;
+  display: flex;
+  justify-content: center;
+  align-content: center; 
 }
 
 .top {
@@ -138,6 +150,12 @@ header {
   object-fit: cover;
 }
 
+.img_amostra:hover{
+  width: 40%;
+  display: flex;
+  margin-left:100px ;
+}
+
 footer{
   font-family: "Open Sans", sans-serif;
   font-weight: 1000;
@@ -168,6 +186,61 @@ footer{
   position: relative;
   width: 100%;
   text-align: center;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #F8FFF8;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5em;
+  color: #BCFD48;
+}
+
+h1 {
+  display: flex;
+  margin: 0;
+  font-size: 1.8em;
+  justify-content: center;
+  color: #BCFD48;
+}
+
+section {
+  padding: 20px;
+  margin: 70px;
+  margin-top: 30px;
+  background-color: #374663;
+  border-radius: 8px;
+  box-shadow: 0px 0px 70px #374663;
+
+}
+
+h2 {
+  display: flex;
+  color: #BCFD48;
+  
+}
+
+.modelos {
+  margin-top: 30px;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+li {
+  margin: 8px 0;
+}
+
+.frase{
+  color: #BCFD48;
 }
 
 
