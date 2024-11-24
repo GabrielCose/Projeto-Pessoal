@@ -91,26 +91,27 @@ header {
   }
 
   .button_cad{
-    display: flex;
     font-family: "Open Sans", sans-serif;
+    display: flex;
     background-color: #BCFD48;
     color: #2C2C2C;
     text-decoration: none;
     font-size: 20px;
     border-radius:25px ;
-    padding: 10px 10px;
-    margin-right: 50px;
-    margin-bottom: 30px ;
-    
+    padding: 10px 30px;
+    justify-content: center;
+    margin-left: 30%;
+    cursor: pointer;
   }
 
 .campo{
     display: flex;
     align-items: center;
-    margin: 20px;
+    margin: 20px;   
 }
 
 input{
+    
     background-color: #F8FFF8;
     display: flex;
     margin: 20px;
