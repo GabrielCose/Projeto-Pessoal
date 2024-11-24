@@ -96,6 +96,7 @@ header {
 }
 
 .card_login .campo span {
+  margin-top: 10px;
   margin-bottom: 5px;
   font-weight: bold;
   text-align: center;
@@ -120,7 +121,7 @@ header {
   font-weight: 1000;
   margin-left: 20%;
   cursor: pointer;
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 .button_log:hover {
@@ -150,6 +151,7 @@ header {
 }
 
 .card_cadastro .campo span {
+  margin-top: 10px;
   margin-bottom: 5px;
   font-weight: bold;
   text-align: center;
@@ -174,7 +176,7 @@ header {
   margin-left: 20%;
   font-weight: 1000;
   cursor: pointer;
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 .button_cad:hover {
