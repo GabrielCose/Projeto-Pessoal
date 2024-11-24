@@ -22,7 +22,7 @@ header {
 }
 
 .introducao{
-  background-color: #374663;
+  background-color: #03001e;
   border: 1px solid  #BCFD48
 }
 
@@ -38,7 +38,7 @@ header {
     justify-content: space-between;
     width: 100%;
     background-size: cover;
-    background-color: #374663;
+    background-color: #03001e;
     margin:0px;
 }
 .logo-header{
@@ -134,7 +134,7 @@ header {
     display: flex;
     background-color: #BCFD48;
     width: 350px;
-    color: #374663;
+    color: #03001e;
     text-align: center;
     align-items: center;
     margin-left:30px ;   
@@ -186,9 +186,9 @@ section {
   padding: 20px;
   margin: 70px;
   margin-top: 30px;
-  background-color: #374663;
+  background-color: #03001e;
   border-radius: 8px;
-  box-shadow: 0px 0px 70px #374663;
+  box-shadow: 0px 0px 70px #03001e;
 
 }
 
@@ -227,7 +227,7 @@ li {
     display: flex;
     width: cover;
     height: 70px;
-    background-color: #374663;
+    background-color: #03001e;
     color: #BCFD48;
     align-items: center;
     justify-content: center;
@@ -244,7 +244,7 @@ li {
     display: flex;
     width: cover;
     height: 70px;
-    background-color: #374663;
+    background-color: #03001e;
     color: #BCFD48;
     align-items: center;
     justify-content: center;

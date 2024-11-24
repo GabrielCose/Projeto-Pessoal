@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="icon" href="./assets/icon/favicon2.ico" type="image/x-icon">
     <link rel="icon" href="./assets/icon/favicon2.png" type="image/x-icon">
@@ -8,125 +9,116 @@
     <title>Cadastro</title>
     <link rel="stylesheet" href="./css/login-cadastro.css" />
 </head>
+
 <body>
     <header class="top">
-        <a class="logo-header" href="./index.html"><img class="logo" src="./assets/icon/favicon2.ico" alt="Logo Subaru" /></a>
-		<nav>
+        <a class="logo-header" href="./index.html"><img class="logo" src="./assets/icon/favicon2.ico"
+                alt="Logo Subaru" /></a>
+        <nav>
             <a class="button" href="./login.html">LOGIN</a>
             <a class="button-2" href="./cadastro.html">CADASTRO</a>
-		</nav>
-	</header>
+        </nav>
+    </header>
     <div class="container-cadastro">
-        <div class="card_cadastro_login">
-          <div class="login">
-            <div class="form-column">
-              <div class="campo">
-                <span>Nome (usuário): </span>
-                <input
-                  type="text"
-                  id="ipt_nome"
-                  placeholder="Insira seu nome"
-                />
-              </div>
-  
-              <div class="campo">
-                <span>Email: </span>
-                <input
-                  type="password"
-                  id="ipt_email"
-                  placeholder="Insira seu email"
-                />
-              </div>
-              <div class="campo">
-                <span>Senha: </span>
-                <input
-                  type="password"
-                  id="ipt_senha"
-                  placeholder="Insira sua senha"
-                />
-              </div>
-              <div class="campo">
-                <span>Confirmação da senha: </span>
-                <input type="text" id="ipt_confirmacao" placeholder="Confirme sua senha" />
-              </div>
+        <div class="card_cadastro">
+            <div class="login">
+                <div class="form-column">
+                    <div class="campo">
+                        <span>Nome (usuário): </span>
+                        <input type="text" id="ipt_nome" placeholder="Insira seu nome" />
+                    </div>
 
-          <button onclick="cadastrar()" class="button_cad">CADASTRAR</button>
-        
-          </div>
-      </div>
+                    <div class="campo">
+                        <span>Email: </span>
+                        <input type="password" id="ipt_email" placeholder="Insira seu email" />
+                    </div>
+                    <div class="campo">
+                        <span>Senha: </span>
+                        <input type="password" id="ipt_senha" placeholder="Insira sua senha" />
+                    </div>
+                    <div class="campo">
+                        <span>Confirmação da senha: </span>
+                        <input type="text" id="ipt_confirmacao" placeholder="Confirme sua senha" />
+                    </div>
 
-      <footer>
-        DESENVOLVIDO POR GABRIEL COSE ARAUJO
-    </footer>
+                    <button onclick="cadastrar()" class="button_cad">CADASTRAR</button>
+
+                </div>
+            </div>
+
+            <footer>
+                DESENVOLVIDO POR GABRIEL COSE ARAUJO
+            </footer>
 
 </body>
+
 </html>
 
 <script>
-  
-function cadastrar() {
-    var nome = ipt_nome.value
-    var email = ipt_email.value
-    var senha = ipt_senha.value
-    var confirmacao = ipt_confirmacao.value
-    var mensagem = ``
-    var arroba = email.indexOf('@');
-    var ponto = email.lastIndexOf('.');
-    var email_valido = (
-        arroba > 0 &&
-        ponto > arroba + 1 &&
-        ponto < email.length - 1
-    )
 
-if (nome == "" || email == "" || senha == "" || confirmacao == ""){
-    alert(`TODOS OS CAMPOS DEVEM SER PREENCHIDOS`)
-} else if (nome.length < 3) {
-        alert(`O nome deve ter pelo menos 3 caracteres`)
-    } else  if (email_valido == false){
-        alert(`Insira um email válido`)
-    }else if (senha.length < 6 ){
-        alert(`A senha deve ter mais de 6 caracteres`) 
+    function cadastrar() {
+        var nome = ipt_nome.value
+        var email = ipt_email.value
+        var senha = ipt_senha.value
+        var confirmacao = ipt_confirmacao.value
+        var mensagem = ``
+        var arroba = email.indexOf('@');
+        var ponto = email.lastIndexOf('.');
+        var email_valido = (
+            arroba > 0 &&
+            ponto > arroba + 1 &&
+            ponto < email.length - 1
+        )
 
-    }else if (senha.length > 30){
-        alert(`A senha deve ter menos que 30 caracteres`)
-    }else if (confirmacao != senha){
-        alert(`A confirmação deve ser igual a senha`)
-    } else {
-        fetch("/usuario/cadastrar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                nomeServer: nome,
-                emailServer: email,
-                senhaServer: senha
-                
-            }),
-        })
-            .then(function (resposta) {
-                console.log("resposta: ", resposta);
+        if (nome == "" || email == "" || senha == "" || confirmacao == "") {
+            alert(`TODOS OS CAMPOS DEVEM SER PREENCHIDOS`)
+        } else if (nome.length < 3) {
+            alert(`O nome deve ter pelo menos 3 caracteres`)
+        } else if (email_valido == false) {
+            alert(`Insira um email válido`)
+        } else if (senha.length < 6) {
+            alert(`A senha deve ter mais de 6 caracteres`)
 
-                if (resposta.ok) {
-                    alert('Cadastro realizado com sucesso! Redirecionando para a tela de login...');
+        } else if (senha.length > 30) {
+            alert(`A senha deve ter menos que 30 caracteres`)
+        } else if (confirmacao != senha) {
+            alert(`A confirmação deve ser igual a senha`)
+        } else {
+            fetch("/usuario/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    nomeServer: nome,
+                    emailServer: email,
+                    senhaServer: senha
 
-                    setTimeout(() => {
-                        window.location = "./login.html";
-                    }, "2000");
-                }
-                else {
-                    throw "Houve um erro ao tentar realizar o cadastro!";
-                }
+                }),
             })
-            .catch(function (resposta) {
-                console.log(`#ERRO: ${resposta}`);
-            });
+                .then(function (resposta) {
+                    console.log("resposta: ", resposta);
+
+                    if (resposta.ok) {
+                        alert('Cadastro realizado com sucesso! Redirecionando para a tela de login...');
+
+                        setTimeout(() => {
+                            window.location = "./login.html";
+                        }, "2000");
+                    }
+                    else {
+                        throw "Houve um erro ao tentar realizar o cadastro!";
+                    }
+                })
+                .catch(function (resposta) {
+                    console.log(`#ERRO: ${resposta}`);
+                });
+
+        }
+
+
 
     }
-
-
-
-}
 
 
 </script>
