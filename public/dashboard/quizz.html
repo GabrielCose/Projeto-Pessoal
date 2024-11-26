@@ -11,6 +11,14 @@
 
 
 <body onload="onloadEsconder(), listar()">
+    <header class="top">
+        <a class="logo-header" href="./dashboard.html"><img class="logo" src="../img/Logo-SUBIE.png" /></a>
+
+        <nav>
+
+    
+        </nav>
+    </header>
     <div id="pontuacaoEJogo">
         <button id="btnIniciarQuiz" onclick="iniciarQuiz()">INICIAR QUIZ</button>
 
@@ -38,9 +46,6 @@
                 <span id="spanQuestaoExibida" class="text-bold"></span>
             </div>
 
-            <div id="infoAlternativas" class="padding-8">
-                <span><em>Escolha uma opção dentre as abaixo:</em></span>
-            </div>
 
             <div id="opcoes" class="flex-colunar padding-8">
                 <span>
@@ -78,7 +83,9 @@
     </div>
 
 </body>
-
+<footer>
+    DESENVOLVIDO POR GABRIEL COSE ARAUJO
+  </footer>
 </html>
 <script>
     function listar(){
@@ -107,96 +114,87 @@
     }
     const listaDeQuestoes = [
 
-        {
-            pergunta: "O Volkswagen Golf foi projetado para substituir qual carro da Volkswagen?",
-            alternativaA: "Polo",
-            alternativaB: "Fusca",
-            alternativaC: "Kombi",
-            alternativaD: "Brasília",
-            alternativaCorreta: "alternativaB"
-        },
-
-        {
-            pergunta: "O e-Golf, marcou a entrada do modelo no segmento de veículos elétricos, combinando um motor totalmente elétrico com a estrutura conhecida do Golf. Foi lançado em que ano ?",
-            alternativaA: "2012",
-            alternativaB: "2020",
-            alternativaC: "2024",
-            alternativaD: "2014",
-            alternativaCorreta: "alternativaD"
-        },
-
-        {
-            pergunta: "A Volkswagen introduziu versões BlueMotion do Golf. Estas versões utilizam tecnologias como sistema start-stop, aerodinâmica melhorada e pneus de baixa resistência para proporcionar economia máxima. Quais os focos dessa tecnologia?",
-            alternativaA: "Economia de combustível e baixas emissões",
-            alternativaB: "Baixas emissões e maior vida util dos pneus",
-            alternativaC: "Maior emissão e maior consumo de combustivel",
-            alternativaD: "Economia de combustivel ",
-            alternativaCorreta: "alternativaA"
-        },
-
-        {
-            pergunta: "Em qual mercado o Volkswagen Golf foi chamado de 'Rabbit' em algumas de suas gerações?",
-            alternativaA: "Europa",
-            alternativaB: "América do Sul",
-            alternativaC: "Ásia",
-            alternativaD: "América do Norte",
-            alternativaCorreta: "alternativaD"
-
-        },
-
-        {
-            pergunta: "Qual foi a geração do Golf a introduzir o modelo elétrico e-Golf?",
-            alternativaA: "Golf Mk6",
-            alternativaB: "Golf Mk7",
-            alternativaC: "Golf Mk8",
-            alternativaD: "Golf Mk5",
-            alternativaCorreta: "alternativaB"
-        },
-
-        {
-            pergunta: "O Golf R é famoso por suas capacidades de alta performance. Ele possui tração em qual configuração?",
-            alternativaA: "Dianteira",
-            alternativaB: "Traseira",
-            alternativaC: "Tração integral",
-            alternativaD: "Somente tração elétrica",
-            alternativaCorreta: "alternativaC"
-        },
-        {
-            pergunta: "Em que ano o VW Golf superou as vendas do Fusca e se tornou o carro mais vendido da Volkswagen?",
-            alternativaA: "2000",
-            alternativaB: "1990",
-            alternativaC: "2002",
-            alternativaD: "2010",
-            alternativaCorreta: "alternativaC"
-        },
-        {
-            pergunta: "O Golf Mk4 no Brasil foi conhecido por trazer acabamentos premium para o segmento. Qual desses materiais era encontrado no interior?",
-            alternativaA: "Couro e acabamento soft touch",
-            alternativaB: "Plástico rígido em todas as partes",
-            alternativaC: "Tecido de Alto custo",
-            alternativaD: "Alumínio em excesso",
-            alternativaCorreta: "alternativaA"
-        },
-
-        {
-            pergunta: "O Volkswagen Golf foi produzido no Brasil em qual fábrica da Volkswagen?",
-            alternativaA: "Fábrica de Taubaté",
-            alternativaB: "Fábrica de São Bernardo do Campo",
-            alternativaC: "Fábrica de São José dos Pinhais",
-            alternativaD: "Fábrica de Resende",
-            alternativaCorreta: "alternativaC"
-        },
-
-        {
-            pergunta: "O Golf Mk4 é lembrado até hoje no Brasil por sua qualidade de construção. Qual característica era um diferencial do modelo em relação a seus concorrentes na época?",
-            alternativaA: "Acabamento de alta qualidade e ótima dirigibilidade",
-            alternativaB: "Preço reduzido em todas as versões",
-            alternativaC: "Foco exclusivo em esportividade",
-            alternativaD: "Pintura externa fosca",
-            alternativaCorreta: "alternativaA"
-        },
-
-    ]
+    {
+        "pergunta": "Qual piloto foi o primeiro a conquistar um Campeonato Mundial de Rally com a Subaru, em 1995?",
+        "alternativaA": "Richard Burns",
+        "alternativaB": "Carlos Sainz",
+        "alternativaC": "Tommi Mäkinen",
+        "alternativaD": "Colin McRae",
+        "alternativaCorreta": "alternativaD"
+    },
+    {
+        "pergunta": "Em que ano a Subaru conquistou seu primeiro título de Construtores no Campeonato Mundial de Rally (WRC)?",
+        "alternativaA": "2001",
+        "alternativaB": "1995",
+        "alternativaC": "1997",
+        "alternativaD": "1993",
+        "alternativaCorreta": "alternativaB"
+    },
+    {
+        "pergunta": "Qual modelo de carro foi usado pela Subaru para conquistar vários títulos no WRC durante os anos 90?",
+        "alternativaA": "Subaru Legacy",
+        "alternativaB": "Subaru BRZ",
+        "alternativaC": "Subaru Impreza 555",
+        "alternativaD": "Subaru WRX STI",
+        "alternativaCorreta": "alternativaC"
+    },
+    {
+        "pergunta": "Qual piloto britânico, famoso por seu estilo agressivo, conquistou o título de Campeão Mundial de Rally com a Subaru em 2001?",
+        "alternativaA": "Petter Solberg",
+        "alternativaB": "Richard Burns",
+        "alternativaC": "Colin McRae",
+        "alternativaD": "Chris Atkinson",
+        "alternativaCorreta": "alternativaB"
+    },
+    {
+        "pergunta": "Em que ano a Subaru venceu o Rally de Monte Carlo pela primeira vez com o Subaru Impreza?",
+        "alternativaA": "1997",
+        "alternativaB": "1995",
+        "alternativaC": "2001",
+        "alternativaD": "2003",
+        "alternativaCorreta": "alternativaA"
+    },
+    {
+        "pergunta": "Quem foi o piloto norueguês que trouxe à Subaru o seu primeiro título mundial de pilotos no Campeonato de Rally (WRC) em 2003?",
+        "alternativaA": "Mads Østberg",
+        "alternativaB": "Petter Solberg",
+        "alternativaC": "Henning Solberg",
+        "alternativaD": "Kimi Räikkönen",
+        "alternativaCorreta": "alternativaB"
+    },
+    {
+        "pergunta": "Qual é o nome do carro que foi o principal modelo da Subaru no Campeonato Mundial de Rally durante a década de 1990?",
+        "alternativaA": "Subaru WRX STI",
+        "alternativaB": "Subaru Impreza 555",
+        "alternativaC": "Subaru Legacy RS",
+        "alternativaD": "Subaru Outback Rally",
+        "alternativaCorreta": "alternativaB"
+    },
+    {
+        "pergunta": "Qual foi a grande inovação técnica do Subaru Impreza 1997 que ajudou a marca a dominar o WRC durante os anos seguintes?",
+        "alternativaA": "Introdução do motor turbo de 2,0 litros",
+        "alternativaB": "Sistema de tração integral simétrica",
+        "alternativaC": "Suspensão independente nas quatro rodas",
+        "alternativaD": "Carro com motor híbrido",
+        "alternativaCorreta": "alternativaB"
+    },
+    {
+        "pergunta": "Qual piloto foi campeão do WRC com a Subaru em 2003, marcando o segundo título de pilotos para a equipe?",
+        "alternativaA": "Mikko Hirvonen",
+        "alternativaB": "Petter Solberg",
+        "alternativaC": "Colin McRae",
+        "alternativaD": "Richard Burns",
+        "alternativaCorreta": "alternativaB"
+    },
+    {
+        "pergunta": "Qual foi o maior rival da Subaru no Campeonato Mundial de Rally nos anos 90, especialmente nas batalhas pelo título de Construtores?",
+        "alternativaA": "Ford",
+        "alternativaB": "Toyota",
+        "alternativaC": "Mitsubishi",
+        "alternativaD": "Citroën",
+        "alternativaCorreta": "alternativaC"
+    },
+]
 
     // variáveis globais    
     let numeroDaQuestaoAtual = 0
