@@ -6,17 +6,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AquaTech | Avisos</title>
+    <title>Subie Fans | Oficinas</title>
 
     <link rel="stylesheet" href="./../css/dashboards_updated.css">
     <link rel="stylesheet" href="./../css/estilo_updated.css" />
-    <script src="../js/sessao.js"></script>
-    <script src="./../js/alerta.js"></script>
+    <!-- <script src="../js/sessao.js"></script>
+    <script src="./../js/alerta.js"></script> -->
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">  -->
+       
 </head>
 
 <body onload="validarSessao(), atualizarFeed()" style="background-color: #161618;">
@@ -26,18 +26,14 @@
 
         <div class="header-left">
 
-            <h1></h1>
+            <a href="../index.html"><img class="logo" style="width: 150px;" src="../img/Logo-SUBIE.png" /></a>
 
             <div class="hello">
-                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+                <h3>Seja bem vindo(a) <span id="b_usuario">usuário</span>!</h3>
                 <!-- <h4><span id="b_cpf">cpf</span></h4> -->
             </div>
 
-            <div class="btn-nav-white">
-                <a href="cards.html">
-                    <h3>Aquários</h3>
-                </a>
-            </div>
+
 
             <div class="btn-nav-white">
                 <a href="./dashboard.html">
@@ -45,12 +41,14 @@
                 </a>
             </div>
 
-            <div class="btn-nav">
-                <h3>Mural de Avisos</h3>
+            <div class="btn-nav-white">
+                <a href="./quizz.html">
+                    <h3>Quiz</h3>
+                </a>
             </div>
 
-            <div class="btn-logout" onclick="limparSessao()">
-                <h3>Sair</h3>
+            <div class="btn-nav">
+                <h3>Mural de Avisos</h3>
             </div>
 
         </div>
@@ -62,16 +60,9 @@
                 <div id="alerta">
                 </div>
                 <div class="container">
-                    <h1>Publicar um aviso</h1>
+                    <h1>Recomendar uma oficina</h1>
                     <div class="div-form">
-                        <form id="form_postagem" method="post" onsubmit="return publicar()">
-                            <label>
-                                Título:
-                                <br>
-                                <input name="titulo" id="titulo" maxlength="100" type="text">
-                            </label>
-                            <br>
-                            <br>
+                        <div id="form_postagem" method="post" onsubmit="return publicar()">
                             <label>
                                 Descrição (máximo de 250 caracteres):
                                 <br>
@@ -79,10 +70,10 @@
                             </label>
                             <br>
                             <br>
-                            <button>Enviar</button>
-                        </form>
+                            <button onclick="publicar()">Enviar</button>
+                        </div>
                     </div>
-                    <h1>Mural de Avisos</h1>
+                    <h1>Oficinas recomendadas</h1>
                     <div class="div-results">
                         <div id="feed_container" class="feed-container">
                         </div>
@@ -108,14 +99,15 @@
 
     function publicar() {
         var idUsuario = sessionStorage.ID_USUARIO;
-
+        //  console.log(form_postagem.titulo.value)
         var corpo = {
-            titulo: form_postagem.titulo.value,
-            descricao: form_postagem.descricao.value
+            // titulo: form_postagem.titulo.value,
+            descricao: textarea_descricao.value,
+            idUsuario: idUsuario
         }
 
-        fetch(`/avisos/publicar/${idUsuario}`, {
-            method: "post",
+        fetch(`/avisos/publicar`, {
+            method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
@@ -126,7 +118,7 @@
 
             if (resposta.ok) {
                 window.alert("Post realizado com sucesso pelo usuario de ID: " + idUsuario + "!");
-                window.location = "/dashboard/mural.html";
+                
                 limparFormulario();
                 finalizarAguardar();
             } else if (resposta.status == 404) {
@@ -143,35 +135,35 @@
 
     }
 
-    function editar(idAviso) {
-        sessionStorage.ID_POSTAGEM_EDITANDO = idAviso;
-        console.log("cliquei em editar - " + idAviso);
-        window.alert("Você será redirecionado à página de edição do aviso de id número: " + idAviso);
-        window.location = "/dashboard/edicao-aviso.html"
+    // function editar(idAviso) {
+    //     sessionStorage.ID_POSTAGEM_EDITANDO = idAviso;
+    //     console.log("cliquei em editar - " + idAviso);
+    //     window.alert("Você será redirecionado à página de edição do aviso de id número: " + idAviso);
+    //     window.location = "/dashboard/edicao-aviso.html"
 
-    }
+    // }
 
-    function deletar(idAviso) {
-        console.log("Criar função de apagar post escolhido - ID" + idAviso);
-        fetch(`/avisos/deletar/${idAviso}`, {
-            method: "DELETE",
-            headers: {
-                "Content-Type": "application/json"
-            }
-        }).then(function (resposta) {
+    // function deletar(idAviso) {
+    //     console.log("Criar função de apagar post escolhido - ID" + idAviso);
+    //     fetch(`/avisos/deletar/${idAviso}`, {
+    //         method: "DELETE",
+    //         headers: {
+    //             "Content-Type": "application/json"
+    //         }
+    //     }).then(function (resposta) {
 
-            if (resposta.ok) {
-                window.alert("Post deletado com sucesso pelo usuario de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
-                window.location = "/dashboard/mural.html"
-            } else if (resposta.status == 404) {
-                window.alert("Deu 404!");
-            } else {
-                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
-            }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-        });
-    }
+    //         if (resposta.ok) {
+    //             window.alert("Post deletado com sucesso pelo usuario de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
+    //             window.location = "./dashboard.html"
+    //         } else if (resposta.status == 404) {
+    //             window.alert("Deu 404!");
+    //         } else {
+    //             throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+    //         }
+    //     }).catch(function (resposta) {
+    //         console.log(`#ERRO: ${resposta}`);
+    //     });
+    // }
 
     function atualizarFeed() {
         fetch("/avisos/listar").then(function (resposta) {

@@ -2,15 +2,16 @@
 <html lang="en">
 
 <head>
+    <link rel="shortcut icon" href="../assets/icon/favicon2.ico" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exemplo - Quiz</title>
+    <title>Quiz</title>
     <link rel="stylesheet" href="style.css">
     <script src="../js/sessao.js"></script>
 </head>
 
 
-<body onload="onloadEsconder(), listar()">
+<body onload="onloadEsconder()">
     <header class="top">
         <a class="logo-header" href="./dashboard.html"><img class="logo" src="../img/Logo-SUBIE.png" /></a>
 
@@ -76,7 +77,7 @@
         </div>
     </div>
     <div id = 'div_resultado'>
-        <h1>score</h1>
+        <h1>Rank</h1>
         <ul id="ul_rank">
 
         </ul>
@@ -384,7 +385,7 @@
         var corpo = {
             qtdPontos: pontuacaoFinal,
         }
-        fetch(`/score/inserirPontuacao/${sessionStorage.ID_USUARIO}`, {
+        fetch(`/score/inserirPontuacao/${sessionStorage.ID_USUARIO} `, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -403,5 +404,31 @@
             console.log(`#ERRO: ${resposta}`);
         });
     }
+
+    function rank(){
+        var corpo = {
+            qtdPontos: pontuacaoFinal,
+            nome: sessionStorage.getItem(NOME_USUARIO)
+        }
+        fetch(`/rank/ranquear`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(corpo)
+        }).then(function (resposta) {
+            if (resposta.ok) {
+                window.alert("Score atualizado com sucesso pelo usuario de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
+                window.location = "/dashboard/quizz.html"
+            } else if (resposta.status == 404) {
+                window.alert("Deu 404!");
+            } else {
+                throw ("Houve um erro ao tentar salvar o score! Código da resposta: " + resposta.status);
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+    }
+    
     
 </script>

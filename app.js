@@ -17,11 +17,11 @@ var app = express();
 
 // var indexRouter = require("./src/routes/index");
 var usuarioRouter = require("./src/routes/usuario");
-// var avisosRouter = require("./src/routes/avisos");
+var avisosRouter = require("./src/routes/avisos");
 // var medidasRouter = require("./src/routes/medidas");
 // var aquariosRouter = require("./src/routes/aquarios");
 // var empresasRouter = require("./src/routes/empresas");
-// var scoreRouter = require("./src/routes/score");
+var scoreRouter = require("./src/routes/score");
 // var publicacaoRouter = require("./src/routes/publicacao");
 
 
@@ -33,11 +33,11 @@ app.use(cors());
 
 // app.use("/", indexRouter);
 app.use("/usuario", usuarioRouter);
-// app.use("/avisos", avisosRouter);
+app.use("/avisos", avisosRouter);
 // app.use("/medidas", medidasRouter);
 // app.use("/aquarios", aquariosRouter);
 // app.use("/empresas", empresasRouter);
-// app.use("/score", scoreRouter);
+app.use("/score", scoreRouter);
 // app.use("/publicacao", publicacaoRouter);
 
 
