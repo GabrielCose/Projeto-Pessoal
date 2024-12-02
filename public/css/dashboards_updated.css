@@ -122,8 +122,10 @@ body {
   left: 20%;
   background-color: #F8FFF8;
   height: 100vh;
-  overflow: auto;
+  overflow: auto; 
+  padding-left: 15px;
 }
+
 
 .area-parametros-alerta {
   /* border: 2px solid pink; */
@@ -133,6 +135,7 @@ body {
   margin: auto;
   margin-top: 10px;
   background-color: #03001e;
+
 }
 
 .area-parametros-alerta .titulo-legenda {

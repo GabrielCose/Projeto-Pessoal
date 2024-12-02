@@ -11,13 +11,13 @@
 </head>
 
 
-<body onload="onloadEsconder()">
+<body onload="onloadEsconder(), listar()">
     <header class="top">
         <a class="logo-header" href="./dashboard.html"><img class="logo" src="../img/Logo-SUBIE.png" /></a>
 
         <nav>
 
-    
+
         </nav>
     </header>
     <div id="pontuacaoEJogo">
@@ -70,29 +70,29 @@
             <div id="botoes" class="flex-colunar padding-8">
                 <button onclick="submeter()" id="btnSubmeter">Submeter resposta</button>
                 <button onclick="avancar()" id="btnProx" disabled>Avançar para próxima questão</button>
-                <!-- <butt on onclick="finalizar()" id="btnConcluir" disabled>Finalizar Quiz</button> -->
-                <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar novamente</button>
+           
             </div>
 
         </div>
     </div>
-    <div id = 'div_resultado'>
+    <div id='div_resultado'>
         <h1>Rank</h1>
-        <ul id="ul_rank">
+        <ol id="ol_rank">
 
-        </ul>
+        </ol>
     </div>
 
 </body>
 <footer>
     DESENVOLVIDO POR GABRIEL COSE ARAUJO
-  </footer>
+</footer>
+
 </html>
 <script>
-    function listar(){
+    function listar() {
         var lista = '';
         fetch("/score/listar").then(function (resposta) {
-            if(resposta.ok){
+            if (resposta.ok) {
                 if (resposta.status == 204) {
                     var feed = document.getElementById("rank");
                     var mensagem = document.createElement("span");
@@ -100,11 +100,12 @@
                     feed.appendChild(mensagem);
                     throw "Nenhum resultado encontrado!!";
                 }
-                resposta.json().then(function (resposta){
+                resposta.json().then(function (resposta) {
                     resposta.forEach(element => {
                         console.log(element.Nome)
                         ul_rank.innerHTML += `  
                             <li>
+                                <div class="pontuacao">
                                 <b>${element.Nome}: </b>
                                 <span>${element.Pontuação}</span>
                             </li>`
@@ -115,87 +116,87 @@
     }
     const listaDeQuestoes = [
 
-    {
-        "pergunta": "Qual piloto foi o primeiro a conquistar um Campeonato Mundial de Rally com a Subaru, em 1995?",
-        "alternativaA": "Richard Burns",
-        "alternativaB": "Carlos Sainz",
-        "alternativaC": "Tommi Mäkinen",
-        "alternativaD": "Colin McRae",
-        "alternativaCorreta": "alternativaD"
-    },
-    {
-        "pergunta": "Em que ano a Subaru conquistou seu primeiro título de Construtores no Campeonato Mundial de Rally (WRC)?",
-        "alternativaA": "2001",
-        "alternativaB": "1995",
-        "alternativaC": "1997",
-        "alternativaD": "1993",
-        "alternativaCorreta": "alternativaB"
-    },
-    {
-        "pergunta": "Qual modelo de carro foi usado pela Subaru para conquistar vários títulos no WRC durante os anos 90?",
-        "alternativaA": "Subaru Legacy",
-        "alternativaB": "Subaru BRZ",
-        "alternativaC": "Subaru Impreza 555",
-        "alternativaD": "Subaru WRX STI",
-        "alternativaCorreta": "alternativaC"
-    },
-    {
-        "pergunta": "Qual piloto britânico, famoso por seu estilo agressivo, conquistou o título de Campeão Mundial de Rally com a Subaru em 2001?",
-        "alternativaA": "Petter Solberg",
-        "alternativaB": "Richard Burns",
-        "alternativaC": "Colin McRae",
-        "alternativaD": "Chris Atkinson",
-        "alternativaCorreta": "alternativaB"
-    },
-    {
-        "pergunta": "Em que ano a Subaru venceu o Rally de Monte Carlo pela primeira vez com o Subaru Impreza?",
-        "alternativaA": "1997",
-        "alternativaB": "1995",
-        "alternativaC": "2001",
-        "alternativaD": "2003",
-        "alternativaCorreta": "alternativaA"
-    },
-    {
-        "pergunta": "Quem foi o piloto norueguês que trouxe à Subaru o seu primeiro título mundial de pilotos no Campeonato de Rally (WRC) em 2003?",
-        "alternativaA": "Mads Østberg",
-        "alternativaB": "Petter Solberg",
-        "alternativaC": "Henning Solberg",
-        "alternativaD": "Kimi Räikkönen",
-        "alternativaCorreta": "alternativaB"
-    },
-    {
-        "pergunta": "Qual é o nome do carro que foi o principal modelo da Subaru no Campeonato Mundial de Rally durante a década de 1990?",
-        "alternativaA": "Subaru WRX STI",
-        "alternativaB": "Subaru Impreza 555",
-        "alternativaC": "Subaru Legacy RS",
-        "alternativaD": "Subaru Outback Rally",
-        "alternativaCorreta": "alternativaB"
-    },
-    {
-        "pergunta": "Qual foi a grande inovação técnica do Subaru Impreza 1997 que ajudou a marca a dominar o WRC durante os anos seguintes?",
-        "alternativaA": "Introdução do motor turbo de 2,0 litros",
-        "alternativaB": "Sistema de tração integral simétrica",
-        "alternativaC": "Suspensão independente nas quatro rodas",
-        "alternativaD": "Carro com motor híbrido",
-        "alternativaCorreta": "alternativaB"
-    },
-    {
-        "pergunta": "Qual piloto foi campeão do WRC com a Subaru em 2003, marcando o segundo título de pilotos para a equipe?",
-        "alternativaA": "Mikko Hirvonen",
-        "alternativaB": "Petter Solberg",
-        "alternativaC": "Colin McRae",
-        "alternativaD": "Richard Burns",
-        "alternativaCorreta": "alternativaB"
-    },
-    {
-        "pergunta": "Qual foi o maior rival da Subaru no Campeonato Mundial de Rally nos anos 90, especialmente nas batalhas pelo título de Construtores?",
-        "alternativaA": "Ford",
-        "alternativaB": "Toyota",
-        "alternativaC": "Mitsubishi",
-        "alternativaD": "Citroën",
-        "alternativaCorreta": "alternativaC"
-    },
-]
+        {
+            "pergunta": "Qual piloto foi o primeiro a conquistar um Campeonato Mundial de Rally com a Subaru, em 1995?",
+            "alternativaA": "Richard Burns",
+            "alternativaB": "Carlos Sainz",
+            "alternativaC": "Tommi Mäkinen",
+            "alternativaD": "Colin McRae",
+            "alternativaCorreta": "alternativaD"
+        },
+        {
+            "pergunta": "Em que ano a Subaru conquistou seu primeiro título de Construtores no Campeonato Mundial de Rally (WRC)?",
+            "alternativaA": "2001",
+            "alternativaB": "1995",
+            "alternativaC": "1997",
+            "alternativaD": "1993",
+            "alternativaCorreta": "alternativaB"
+        },
+        {
+            "pergunta": "Qual modelo de carro foi usado pela Subaru para conquistar vários títulos no WRC durante os anos 90?",
+            "alternativaA": "Subaru Legacy",
+            "alternativaB": "Subaru BRZ",
+            "alternativaC": "Subaru Impreza 555",
+            "alternativaD": "Subaru WRX STI",
+            "alternativaCorreta": "alternativaC"
+        },
+        {
+            "pergunta": "Qual piloto britânico, famoso por seu estilo agressivo, conquistou o título de Campeão Mundial de Rally com a Subaru em 2001?",
+            "alternativaA": "Petter Solberg",
+            "alternativaB": "Richard Burns",
+            "alternativaC": "Colin McRae",
+            "alternativaD": "Chris Atkinson",
+            "alternativaCorreta": "alternativaB"
+        },
+        {
+            "pergunta": "Em que ano a Subaru venceu o Rally de Monte Carlo pela primeira vez com o Subaru Impreza?",
+            "alternativaA": "1997",
+            "alternativaB": "1995",
+            "alternativaC": "2001",
+            "alternativaD": "2003",
+            "alternativaCorreta": "alternativaA"
+        },
+        {
+            "pergunta": "Quem foi o piloto norueguês que trouxe à Subaru o seu primeiro título mundial de pilotos no Campeonato de Rally (WRC) em 2003?",
+            "alternativaA": "Mads Østberg",
+            "alternativaB": "Petter Solberg",
+            "alternativaC": "Henning Solberg",
+            "alternativaD": "Kimi Räikkönen",
+            "alternativaCorreta": "alternativaB"
+        },
+        {
+            "pergunta": "Qual é o nome do carro que foi o principal modelo da Subaru no Campeonato Mundial de Rally durante a década de 1990?",
+            "alternativaA": "Subaru WRX STI",
+            "alternativaB": "Subaru Impreza 555",
+            "alternativaC": "Subaru Legacy RS",
+            "alternativaD": "Subaru Outback Rally",
+            "alternativaCorreta": "alternativaB"
+        },
+        {
+            "pergunta": "Qual foi a grande inovação técnica do Subaru Impreza 1997 que ajudou a marca a dominar o WRC durante os anos seguintes?",
+            "alternativaA": "Introdução do motor turbo de 2,0 litros",
+            "alternativaB": "Sistema de tração integral simétrica",
+            "alternativaC": "Suspensão independente nas quatro rodas",
+            "alternativaD": "Carro com motor híbrido",
+            "alternativaCorreta": "alternativaB"
+        },
+        {
+            "pergunta": "Qual piloto foi campeão do WRC com a Subaru em 2003, marcando o segundo título de pilotos para a equipe?",
+            "alternativaA": "Mikko Hirvonen",
+            "alternativaB": "Petter Solberg",
+            "alternativaC": "Colin McRae",
+            "alternativaD": "Richard Burns",
+            "alternativaCorreta": "alternativaB"
+        },
+        {
+            "pergunta": "Qual foi o maior rival da Subaru no Campeonato Mundial de Rally nos anos 90, especialmente nas batalhas pelo título de Construtores?",
+            "alternativaA": "Ford",
+            "alternativaB": "Toyota",
+            "alternativaC": "Mitsubishi",
+            "alternativaD": "Citroën",
+            "alternativaCorreta": "alternativaC"
+        },
+    ]
 
     // variáveis globais    
     let numeroDaQuestaoAtual = 0
@@ -204,14 +205,15 @@
     let certas = 0
     let erradas = 0
     let quantidadeDeQuestoes = listaDeQuestoes.length
-    // let isUltima = numeroDaQuestaoAtual == quantidadeDeQuestoes-1 ? true : false
 
     function onloadEsconder() {
         document.getElementById('pontuacao').style.display = "none"
         document.getElementById('jogo').style.display = "none"
+      
     }
 
     function iniciarQuiz() {
+      document.getElementById('div_resultado').style.display = "none"
         document.getElementById('pontuacao').style.display = "flex"
         document.getElementById('jogo').style.display = "flex"
         document.getElementById('btnIniciarQuiz').style.display = "none"
@@ -222,8 +224,6 @@
 
         btnSubmeter.disabled = false
         btnProx.disabled = true
-        // btnConcluir.disabled = true
-        btnTentarNovamente.disabled = true
     }
 
     function preencherHTMLcomQuestaoAtual(index) {
@@ -282,17 +282,11 @@
         if (numeroDaQuestaoAtual < quantidadeDeQuestoes - 1) {
             preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
         } else if (numeroDaQuestaoAtual == quantidadeDeQuestoes - 1) {
-            alert("Atenção... a próxima é a ultima questão!")
             preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
         } else {
             finalizarJogo()
         }
         limparCoresBackgroundOpcoes()
-    }
-
-    function tentarNovamente() {
-        // atualiza a página
-        window.location.reload()
     }
 
     function checarResposta() {
@@ -364,13 +358,13 @@
             classComCoresParaMensagemFinal = "text-success-with-bg"
         }
 
-        textoParaMensagemFinal += "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos)*100) + "% das questões."
+        textoParaMensagemFinal += "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos) * 100) + "% das questões."
 
         document.getElementById('msgFinal').innerHTML = textoParaMensagemFinal
-        document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal) 
+        document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal)
         document.getElementById('spanPontuacaoFinal').innerHTML = pontuacaoFinal
 
-        document.getElementById('jogo').classList.add("text-new-gray") 
+        document.getElementById('jogo').classList.add("text-new-gray")
 
         btnProx.disabled = true
         btnSubmeter.disabled = true
@@ -380,8 +374,11 @@
 
     }
 
-    function salvarScore(){
+    function salvarScore() {
         console.log(sessionStorage.ID_USUARIO)
+        document.getElementById('div_resultado').style.display = "flex"
+        document.getElementById('jogo').style.display = "none"
+        document.getElementById('pontuacao').style.display = "flex";
         var corpo = {
             qtdPontos: pontuacaoFinal,
         }
@@ -405,30 +402,6 @@
         });
     }
 
-    function rank(){
-        var corpo = {
-            qtdPontos: pontuacaoFinal,
-            nome: sessionStorage.getItem(NOME_USUARIO)
-        }
-        fetch(`/rank/ranquear`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(corpo)
-        }).then(function (resposta) {
-            if (resposta.ok) {
-                window.alert("Score atualizado com sucesso pelo usuario de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
-                window.location = "/dashboard/quizz.html"
-            } else if (resposta.status == 404) {
-                window.alert("Deu 404!");
-            } else {
-                throw ("Houve um erro ao tentar salvar o score! Código da resposta: " + resposta.status);
-            }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-        });
-    }
-    
-    
+
+
 </script>
