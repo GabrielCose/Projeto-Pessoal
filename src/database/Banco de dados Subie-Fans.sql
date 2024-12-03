@@ -26,9 +26,10 @@ fkUsuario INT NOT NULL,
 FOREIGN KEY (fkUsuario) REFERENCES usuario(idUsuario)
 );
 
-select * from comentarios;
 select * from usuario;
+select * from comentarios;
 select * from score; 
+
 SELECT 
 	u.nome AS Nome,
 	c.descricao AS Oficina
