@@ -8,6 +8,12 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
+ul,
+ol,
+li {
+  list-style: none;
+}
+
 .label-captura {
   display: flex;
   justify-content: center;
@@ -92,12 +98,23 @@ body {
 
 .div-results {
   width: 100%;
+  font-weight: 300;
+  font-size: 30px;
 }
 
 .div-results .feed-container {
-  background-color: #03001e;
+  background-color: #F8FFF8;
+  color: #03001e;
   border-radius: 5px;
   margin-bottom: 80px;
+  font-size: 300;
+}
+
+.div-results .oficinas {
+  background-color: #BCFD48;
+  margin: 20px;
+  padding: 20px;
+  color: #03001e;
 }
 
 .div-buttons {
@@ -122,7 +139,7 @@ body {
   left: 20%;
   background-color: #F8FFF8;
   height: 100vh;
-  overflow: auto; 
+  overflow: auto;
   padding-left: 15px;
 }
 

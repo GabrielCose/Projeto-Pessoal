@@ -162,3 +162,13 @@ footer {
     width: 100%;
     text-align: center;
 }
+
+canvas{
+    color: #F8FFF8;
+}
+.grafico{
+    color: #dc3545;
+    width: 800px;
+    justify-content: center;
+    color: #F8FFF8;
+  }

@@ -1,6 +1,7 @@
 var avisoModel = require("../models/avisoModel");
 
 function listar(req, res) {
+    console.log(`estou na função listar`)
     avisoModel.listar().then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
